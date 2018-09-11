@@ -1,0 +1,3 @@
+@mixin background ($imgpath, $position: 0 0, $repeat: contain) {
+  background: url('static/build/assets/#{$imgpath}') $repeat $position;
+}
