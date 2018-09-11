@@ -1,12 +1,12 @@
-Forum
+# Forum
 
-*Overview*
+## Overview
 React/Python-based app.
 
-*Technological stack*
+## Technological stack
 React, MobX, Python (Flask), Webpack, SASS
 
-*Run app*
+## Run app
 Build production-ready app
 ```
 npm install
