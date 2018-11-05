@@ -1,37 +1,39 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import '../styles/app.scss';
-import createBrowserHistory from 'history/createBrowserHistory';
+import promiseFinally from 'promise.prototype.finally';
+import { useStrict } from 'mobx';
 import { Provider } from 'mobx-react';
+import createBrowserHistory from 'history/createBrowserHistory';
 import { RouterStore, syncHistoryWithStore } from 'mobx-react-router';
 import { Router } from 'react-router';
 
-import TopNavBar from './modules/TopNavBar/components/TopNavBar';
-import { LoginStore } from "./modules/Login/LoginStore";
+import '../styles/app.scss';
+
+import App from './modules/App/components/App';
+import authStore from './modules/Auth/AuthStore';
+import userStore from './shared/stores/userStore';
+import commonStore from './shared/stores/commonStore';
 
 const browserHistory = createBrowserHistory();
 const routingStore = new RouterStore();
-const loginStore = new LoginStore();
+
 const stores = {
-  routing: routingStore,
-  login: loginStore
+  routingStore,
+  commonStore,
+  authStore,
+  userStore
 };
 
 const history = syncHistoryWithStore(browserHistory, routingStore);
 
-const App = () => {
-  return (
+promiseFinally.shim();
+useStrict(true);
+
+ReactDOM.render((
     <Provider {...stores}>
       <Router history={history}>
-        <div>
-          <TopNavBar/>
-        </div>
+        <App />
       </Router>
     </Provider>
-  );
-};
-
-ReactDOM.render(
-  <App/>,
-  document.getElementById('root')
+  ), document.getElementById('root')
 );

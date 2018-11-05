@@ -11,6 +11,7 @@ flake8==3.5.0
 Flask==0.10.1
 Flask-Babel==0.11.2
 Flask-Login==0.4.0
+Flask-Bcrypt==0.7.1
 Flask-Mail==0.9.1
 Flask-Migrate==1.8.0
 Flask-OpenID==1.2.5
@@ -44,6 +45,7 @@ SQLAlchemy==1.1.15
 sqlalchemy-migrate==0.10.0
 SQLAlchemy-Utils==0.33.4
 sqlparse==0.2.4
+marshmallow-sqlalchemy==0.14.1
 Tempita==0.5.2
 validators==0.12.2
 virtualenv==16.0.0

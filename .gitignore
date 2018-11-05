@@ -1,4 +1,11 @@
-.idea/
+.idea/*
 /build/
 /node_modules/
 /server/migrations/
+*.db
+.DS_Store
+venv
+env
+**/__pycache__/*
+*.pyc
+tmp
