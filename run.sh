@@ -1,3 +1,3 @@
 #!/bin/bash
 
-npm run build && python server/app.py
+python server/manage.py runserver

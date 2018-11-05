@@ -4,9 +4,10 @@
   "description": "Social network home project",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --open --hot",
-    "start-python": "sh run.sh",
-    "build": "webpack --mode production",
+    "watch": "webpack --mode development --watch",
+    "server": "sh run.sh",
+    "start": "webpack-dev-server --mode development --hot",
+    "build": "webpack --mode development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -45,10 +46,15 @@
     "mobx": "^3.2.2",
     "mobx-react": "^4.2.2",
     "mobx-react-router": "^4.0.4",
+    "promise": "latest",
+    "promise.prototype.finally": "^3.1.0",
     "react": "^16.4.1",
     "react-bootstrap": "^0.32.1",
     "react-dom": "^16.4.1",
     "react-router": "^4.3.1",
-    "sass": "^1.10.3"
+    "react-router-dom": "^4.3.1",
+    "sass": "^1.10.3",
+    "superagent": "^4.0.0-beta.5",
+    "superagent-promise": "^1.1.0"
   }
 }

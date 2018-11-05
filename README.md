@@ -7,10 +7,10 @@ React/Python-based app.
 React, MobX, Python (Flask), Webpack, SASS
 
 ## Run app
-Build production-ready app
 ```
 npm install
-sh run.sh
+npm run watch
+npm run server
 ```
 
 App will be available at http://localhost:5000.
