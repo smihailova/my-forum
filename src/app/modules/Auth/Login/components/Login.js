@@ -24,29 +24,43 @@ class Login extends React.Component {
     const { values, errors, inProgress } = this.props.authStore;
 
     return (
-      <form className='login-form' onSubmit={this.handleSubmitForm}>
-        <input
-          className='form-control login-form__email'
-          type='text'
-          value={values.email}
-          placeholder='email'
-          onChange={this.handleEmailChange}
-        />
-        <input
-          className='form-control login-form__password'
-          type='text'
-          value={values.password}
-          placeholder='password'
-          onChange={this.handlePasswordChange}
-        />
-        <button
-          className='btn btn-success login-form__sign-in-button'
-          type='submit'
-          disabled={inProgress}
-        >
-          Sign in
-        </button>
-      </form>
+      <div className='login'>
+        <div className='login__inner'>
+          <div className='login__container'>
+            <div className='login__form'>
+              <form onSubmit={this.handleSubmitForm}>
+                <input
+                  className='form-control login__control login__email'
+                  type='text'
+                  value={values.email}
+                  placeholder='Email'
+                  onChange={this.handleEmailChange}
+                />
+                <input
+                  className='form-control login__control login__password'
+                  type='password'
+                  value={values.password}
+                  placeholder='Password'
+                  onChange={this.handlePasswordChange}
+                />
+                <button
+                  className='btn btn-success login__control login__login-button'
+                  type='submit'
+                  disabled={inProgress}
+                >
+                  Log in
+                </button>
+              </form>
+            </div>
+            <div className='login__sign-up'>
+              <div className='login__sign-up-text'>Do not have an account?</div>
+              <div className='login__sign-up-link-block'>
+                <a className='login__sign-up-link' href='/registration'>Sign Up</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     );
   }
 }

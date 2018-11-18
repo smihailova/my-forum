@@ -4,30 +4,32 @@ import './Header.scss';
 import Login from '../../Auth/Login/components/Login';
 
 
-@inject('userStore')
+@inject('userStore', 'commonStore', 'authStore', 'routingStore')
 @observer
 class Header extends React.Component {
   constructor(props) {
     super(props);
   }
 
-  getRightSection() {
-    const { currentUser } = this.props.userStore;
-    if (currentUser) {
-      return `${currentUser.name} >`;
-    }
-    return <Login/>;
-  }
+  handleLogout = () => {
+    this.props.authStore.logout().then(() => this.props.routingStore.push('/login'));
+  };
 
   render() {
+    const currentUserData = this.props.userStore.currentUser
+      ? this.props.userStore.currentUser.email
+      : 'Loading...';
     return (
       <div className='header'>
         <div className='header__title'>
           Forum
         </div>
         <div className='header__right-section'>
-          { this.getRightSection() }
+          { currentUserData } >
         </div>
+        <button onClick={this.handleLogout}>
+          Logout
+        </button>
       </div>
     );
   }

@@ -1,3 +1,4 @@
-@mixin background ($imgpath, $position: 0 0, $repeat: contain) {
-  background: url('static/build/assets/#{$imgpath}') $repeat $position;
+@mixin background ($imgpath, $position: center, $repeat: cover) {
+  background: url('/build/assets/backgrounds/#{$imgpath}') $position;
+  background-size: $repeat;
 }
