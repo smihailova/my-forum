@@ -1,14 +1,39 @@
-.registration {
-  border-left: 1px solid #ccc;
-  height: 100%;
-  width: 50%;
-  float: right;
-}
+@import '../../../../../styles/mixins';
 
-.registration__form {
-  width: 50%;
-  padding: 20px;
-  margin: 30% auto;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+$color-light-bluish-gray: #c1c4cc;
+
+.register {
+  @include background('grass.png');
+  height: 100%;
+
+  &__inner {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    float: right;
+    border-left: 1px solid $color-light-bluish-gray;
+    background-color: rgba(255, 255, 255, 0.38);
+  }
+
+  &__container {
+    width: 300px;
+    height: 300px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid $color-light-bluish-gray;
+    background-color: rgba(255, 255, 255, 0.66);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__control {
+    margin-bottom: 20px;
+    border-radius: unset;
+  }
+
+  &__signup-button {
+    margin-bottom: 0;
+    width: 100%;
+  }
 }

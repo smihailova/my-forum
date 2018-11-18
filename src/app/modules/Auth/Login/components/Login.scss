@@ -1,7 +1,52 @@
-.login-form {
-  display: flex;
+@import '../../../../../styles/mixins';
 
-  & > *:not(:last-child) {
-    margin-right: 5px;
+$color-light-bluish-gray: #c1c4cc;
+$color-dark-gray: #646464;
+
+.login {
+  @include background('brown-cat.jpg');
+  height: 100%;
+
+  &__inner {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    float: right;
+    border-left: 1px solid $color-light-bluish-gray;
+    background-color: rgba(255, 255, 255, 0.38);
+  }
+
+  &__container {
+    width: 300px;
+    height: 300px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid $color-light-bluish-gray;
+    background-color: rgba(255, 255, 255, 0.66);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__control {
+    margin-bottom: 20px;
+    border-radius: unset;
+  }
+
+  &__login-button {
+    width: 100%;
+  }
+
+  &__sign-up-text {
+    text-align: center;
+    color: $color-dark-gray;
+  }
+
+  &__sign-up-link-block {
+    text-align: center;
+  }
+
+  &__sign-up-link {
+    text-decoration: none !important;
   }
 }

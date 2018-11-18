@@ -1,7 +1,7 @@
 import { observable, action } from 'mobx';
 import agent from '../../shared/agent';
-import userStore from '../../shared/stores/userStore';
-import commonStore from '../../shared/stores/commonStore';
+import userStore from '../../shared/stores/userStore.react';
+import commonStore from '../../shared/stores/commonStore.react';
 
 
 class AuthStore {

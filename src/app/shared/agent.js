@@ -1,6 +1,6 @@
 import superagentPromise from 'superagent-promise';
 import _superagent from 'superagent';
-import commonStore from './stores/commonStore';
+import commonStore from './stores/commonStore.react';
 import authStore from '../modules/Auth/AuthStore';
 
 const superagent = superagentPromise(_superagent, global.Promise);
@@ -54,6 +54,8 @@ const requests = {
 const Auth = {
   current: () =>
     requests.get('/user'),
+  isTokenValid: (token) =>
+    requests.post('/is_token_valid', { token }),
   login: (email, password) =>
     requests.post('/users/login', { email, password }),
   register: (name, email, password) =>
