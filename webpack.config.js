@@ -3,11 +3,11 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const CopyWebpackPluginConfig = new CopyWebpackPlugin([{
-  from: __dirname + '/src/assets',
+  from: __dirname + '/public/assets',
   to: 'assets'
 }]);
 const HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
-  template: __dirname + '/src/assets/index.html',
+  template: __dirname + '/server/templates/index.html',
   filename: 'index.html',
   inject: 'body'
 });
@@ -15,7 +15,7 @@ const HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
 module.exports = {
   context: path.join(__dirname, '/src/app'),
   entry: [
-    path.join(__dirname, 'src/app/index.js')
+    path.join(__dirname, 'src/index.js')
   ],
   output: {
     path: path.join(__dirname, 'build'),
