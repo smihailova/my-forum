@@ -1,0 +1,29 @@
+version: '3.6'
+
+services:
+  flask-react:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: bash -c "npm run build & while [ ! -f build/bundle.js ] ; do sleep 1 ; echo 'build/bundle.js from webpack' ; done ; python server/manage.py runserver -h 0.0.0.0"
+    ports:
+      - "5000:5000"
+    volumes:
+      - "./node_modules"
+    environment:
+      - FLASK_ENV=development
+      - APP_SETTINGS=server.config.DevelopmentConfig
+      - DATABASE_URL='postgresql://smihailova:password@localhost:5432/forum'
+      - PORT=5000
+    depends_on:
+      - db
+
+  db:
+    build:
+      context: .
+      dockerfile: db/Dockerfile
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=smihailova
+      - POSTGRES_PASSWORD=password

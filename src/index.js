@@ -1,22 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import promiseFinally from 'promise.prototype.finally';
-import { useStrict } from 'mobx';
 import { Provider } from 'mobx-react';
 import createBrowserHistory from 'history/createBrowserHistory';
 import { RouterStore, syncHistoryWithStore } from 'mobx-react-router';
 import { Router } from 'react-router';
 import { Switch, Route } from 'react-router-dom';
 
-import '../styles/app.scss';
+import './styles/app.scss';
 
-import Home from './modules/Home/components/Home';
-import Register from './modules/Auth/Register/components/Register';
-import Login from './modules/Auth/Login/components/Login';
+import Home from './app/modules/Home/components/Home';
+import Register from './app/modules/Auth/Register/components/Register';
+import Login from './app/modules/Auth/Login/components/Login';
 
-import authStore from './modules/Auth/AuthStore';
-import userStore from './shared/stores/userStore.react';
-import commonStore from './shared/stores/commonStore.react';
+import authStore from './app/modules/Auth/AuthStore';
+import userStore from './app/shared/stores/userStore.react';
+import commonStore from './app/shared/stores/commonStore.react';
 
 const browserHistory = createBrowserHistory();
 const routingStore = new RouterStore();
@@ -31,7 +30,6 @@ const stores = {
 const history = syncHistoryWithStore(browserHistory, routingStore);
 
 promiseFinally.shim();
-useStrict(true);
 
 ReactDOM.render((
     <Provider {...stores}>
